@@ -6,6 +6,7 @@ const SERVER_LIST_ITEM: PackedScene = preload("res://Scenes/server_list_item.tsc
 func _ready() -> void:
 	MultiplayerSystem.joining_server.connect(_on_server_joining)
 	multiplayer.connection_failed.connect(on_connection_failed)
+	add_saved_servers()
 
 func _on_server_joining(server_ip: String):
 	%JoiningServerPopup.visible = true
@@ -21,6 +22,16 @@ func on_connection_failed():
 	
 
 # SERVERS
+func add_saved_servers() -> void:
+	if Global.server_list.is_empty(): return
+	
+	for server in Global.server_list:
+		var server_list_item: ServerListItem = SERVER_LIST_ITEM.instantiate()
+		server_list_item.server_name = server[0]
+		server_list_item.server_ip = server[1]
+		%ServersServerList.add_child(server_list_item)
+
+
 func _on_servers_add_server_pressed() -> void:
 	%ServersAddServerServerName.text = "Server"
 	%ServersAddServerServerIp.text = ""
@@ -40,6 +51,9 @@ func _on_servers_add_server_add_pressed() -> void:
 	%ServersServerList.add_child(server_list_item)
 	
 	%ServersAddServerPopup.visible = false
+	
+	Global.server_list.append([server_list_item.server_name, server_list_item.server_ip])
+	SaveSystem.save_data()
 
 func _on_servers_add_server_cancel_pressed() -> void:
 	%ServersAddServerPopup.visible = false

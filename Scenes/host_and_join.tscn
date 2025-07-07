@@ -62,10 +62,6 @@ server_name = "Owner's Server"
 server_ip = "held-thru.gl.at.ply.gg:3393"
 can_edit = false
 
-[node name="ServerListItem2" parent="TabContainer/Servers/PanelContainer/ServersServerList" instance=ExtResource("2_m7gat")]
-layout_mode = 2
-server_name = "Local Server"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Servers"]
 layout_mode = 1
 anchors_preset = 8

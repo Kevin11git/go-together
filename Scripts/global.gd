@@ -3,6 +3,8 @@ extends Node
 
 var username: String = ""
 var player_color: Color = Color.WHITE
+var server_list: Array[Array] = []
+
 var game_chat: Chat = null
 
 func _input(event: InputEvent) -> void:

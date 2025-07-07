@@ -14,6 +14,7 @@ func save_data() -> void:
 	var save_file: FileAccess = FileAccess.open(OS.get_user_data_dir().path_join(SAVENAME), FileAccess.WRITE)
 	save_file.store_var(Global.username)
 	save_file.store_var(Global.player_color)
+	save_file.store_var(Global.server_list)
 	
 	save_file_exists = true
 	print("Save game saved!")
@@ -28,6 +29,7 @@ func load_data() -> void:
 	var save_file: FileAccess = FileAccess.open(OS.get_user_data_dir().path_join(SAVENAME), FileAccess.READ)
 	Global.username = save_file.get_var()
 	Global.player_color = save_file.get_var()
+	Global.server_list = save_file.get_var()
 	
 	save_file_exists = true
 	print("Save game loaded!")
