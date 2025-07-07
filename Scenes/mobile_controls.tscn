@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://gnlhixx7yg7v"]
+
+[ext_resource type="Texture2D" uid="uid://brmlyg8drxhg8" path="res://assets/mobile_control_move_button.png" id="1_k0vrn"]
+[ext_resource type="Script" uid="uid://dok5vtrr40ru0" path="res://Scripts/mobile_controls.gd" id="1_md083"]
+[ext_resource type="Texture2D" uid="uid://4h06gx7lbwfv" path="res://assets/mobile_control_move_button_pressed.png" id="2_md083"]
+[ext_resource type="Texture2D" uid="uid://cpal22yabkp8k" path="res://assets/mobile_control_jump_button.png" id="3_uhutp"]
+[ext_resource type="Texture2D" uid="uid://ctj2xkmgac5ia" path="res://assets/mobile_control_jump_button_pressed.png" id="4_8jnog"]
+[ext_resource type="Texture2D" uid="uid://blu8sueb2dv6y" path="res://assets/mobile_control_random_color_button.png" id="5_n67iu"]
+[ext_resource type="Texture2D" uid="uid://d0u8q5i6boqow" path="res://assets/mobile_control_random_color_button_pressed.png" id="6_i47fd"]
+[ext_resource type="Texture2D" uid="uid://0f8e2dfpogtk" path="res://assets/mobile_control_chat_button.png" id="7_q5klo"]
+[ext_resource type="Texture2D" uid="uid://nb1gxe0emkg" path="res://assets/mobile_control_chat_button_pressed.png" id="8_0y3to"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
+size = Vector2(350, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8erm5"]
+size = Vector2(250, 250)
+
+[node name="MobileControls" type="CanvasLayer"]
+script = ExtResource("1_md083")
+
+[node name="MoveLeftButton" type="TouchScreenButton" parent="."]
+position = Vector2(138, 460)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_k0vrn")
+texture_pressed = ExtResource("2_md083")
+shape = SubResource("RectangleShape2D_fkybt")
+passby_press = true
+action = "move_left"
+visibility_mode = 1
+
+[node name="MoveRightButton" type="TouchScreenButton" parent="."]
+position = Vector2(490, 460)
+scale = Vector2(-0.5, 0.5)
+texture_normal = ExtResource("1_k0vrn")
+texture_pressed = ExtResource("2_md083")
+shape = SubResource("RectangleShape2D_fkybt")
+passby_press = true
+action = "move_right"
+visibility_mode = 1
+
+[node name="RightButtonsAnchor" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1152, 324)
+
+[node name="JumpButton" type="TouchScreenButton" parent="RightButtonsAnchor"]
+position = Vector2(-203, 126)
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_uhutp")
+texture_pressed = ExtResource("4_8jnog")
+shape = SubResource("RectangleShape2D_8erm5")
+action = "jump"
+visibility_mode = 1
+
+[node name="RandomizeColorButton" type="TouchScreenButton" parent="RightButtonsAnchor"]
+position = Vector2(-143, -286)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_n67iu")
+texture_pressed = ExtResource("6_i47fd")
+shape = SubResource("RectangleShape2D_8erm5")
+action = "randomize_color"
+visibility_mode = 1
+
+[node name="OpenChatButton" type="TouchScreenButton" parent="RightButtonsAnchor"]
+position = Vector2(-295, -286)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_q5klo")
+texture_pressed = ExtResource("8_0y3to")
+shape = SubResource("RectangleShape2D_8erm5")
+action = "open_chat"
+visibility_mode = 1

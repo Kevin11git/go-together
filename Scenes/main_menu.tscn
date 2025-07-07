@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://b310otp2g7e00"]
+
+[ext_resource type="Theme" uid="uid://backtrgfro4lh" path="res://Themes/main_theme.tres" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://c7p7uvp3ps2s3" path="res://Scripts/main_menu.gd" id="1_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://bwvntnks7eys6" path="res://icon.svg" id="2_ce3w2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_erv1k"]
+paragraph_spacing = -0.03
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ehe0"]
+font_size = 90
+font_color = Color(0.317647, 1, 1, 1)
+outline_size = 22
+outline_color = Color(0.157874, 0.161034, 0.767897, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ce3w2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0816, 0.0816, 0.48, 1)
+
+[node name="PlayerColorPicker" type="ColorPicker" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = -292.0
+offset_right = 339.0
+grow_vertical = 0
+edit_alpha = false
+picker_shape = 1
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="UsernameAndPlayerColor" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -108.0
+offset_right = 376.0
+offset_bottom = -36.0
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Username" type="HBoxContainer" parent="UsernameAndPlayerColor"]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="UsernameAndPlayerColor/Username"]
+layout_mode = 2
+text = "Username:"
+label_settings = SubResource("LabelSettings_erv1k")
+
+[node name="Username" type="LineEdit" parent="UsernameAndPlayerColor/Username"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme = ExtResource("1_48xlc")
+theme_override_font_sizes/font_size = 22
+placeholder_text = "Player"
+max_length = 15
+
+[node name="PlayerColor" type="HBoxContainer" parent="UsernameAndPlayerColor"]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="UsernameAndPlayerColor/PlayerColor"]
+layout_mode = 2
+text = "Player Color: "
+label_settings = SubResource("LabelSettings_erv1k")
+
+[node name="PlayerColorButton" type="Button" parent="UsernameAndPlayerColor/PlayerColor"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_48xlc")
+theme_override_constants/icon_max_width = 80
+icon = ExtResource("2_ce3w2")
+
+[node name="CenterButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -33.0
+offset_right = 48.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="MultiplayerButton" type="Button" parent="CenterButtons"]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme = ExtResource("1_48xlc")
+theme_override_font_sizes/font_size = 30
+text = "Multiplayer"
+
+[node name="PlayButton" type="Button" parent="CenterButtons"]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme = ExtResource("1_48xlc")
+theme_override_font_sizes/font_size = 30
+text = "Singleplayer"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -304.0
+offset_top = 25.0
+offset_right = 304.0
+offset_bottom = 150.625
+grow_horizontal = 2
+text = "Go Together!"
+label_settings = SubResource("LabelSettings_1ehe0")
+horizontal_alignment = 1
+
+[connection signal="color_changed" from="PlayerColorPicker" to="." method="_on_player_color_picker_color_changed"]
+[connection signal="text_changed" from="UsernameAndPlayerColor/Username/Username" to="." method="_on_username_text_changed"]
+[connection signal="pressed" from="UsernameAndPlayerColor/PlayerColor/PlayerColorButton" to="." method="_on_player_color_button_pressed"]
+[connection signal="pressed" from="CenterButtons/MultiplayerButton" to="." method="_on_multiplayer_button_pressed"]
+[connection signal="pressed" from="CenterButtons/PlayButton" to="." method="_on_play_button_pressed"]

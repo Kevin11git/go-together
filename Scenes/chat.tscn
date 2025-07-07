@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dppcoqverkruh"]
+
+[ext_resource type="Script" uid="uid://v21ategi0en" path="res://Scripts/chat.gd" id="1_pooq6"]
+
+[node name="Chat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pooq6")
+
+[node name="ItemList" type="ItemList" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -363.0
+offset_right = 400.0
+offset_bottom = -328.0
+grow_vertical = 0
+auto_height = true
+
+[node name="NewMessagesList" type="ItemList" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -363.0
+offset_right = 400.0
+offset_bottom = -328.0
+grow_vertical = 0
+auto_height = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -309.0
+offset_right = 400.0
+offset_bottom = -278.0
+grow_vertical = 0

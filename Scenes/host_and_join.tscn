@@ -1,0 +1,562 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1jdpphtfgulx"]
+
+[ext_resource type="Script" uid="uid://b36s1kncq82x2" path="res://Scripts/host_and_join.gd" id="1_mgem6"]
+[ext_resource type="PackedScene" uid="uid://cd4bju83wwrjq" path="res://Scenes/server_list_item.tscn" id="2_m7gat"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1y0oh"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_m7gat"]
+font_size = 11
+
+[sub_resource type="LabelSettings" id="LabelSettings_mgem6"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_iv8db"]
+font_size = 35
+
+[node name="HostAndJoin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mgem6")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Servers" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Servers"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -537.0
+offset_top = -203.5
+offset_right = 535.0
+offset_bottom = 281.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ServersServerList" type="VBoxContainer" parent="TabContainer/Servers/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ServerListItem" parent="TabContainer/Servers/PanelContainer/ServersServerList" instance=ExtResource("2_m7gat")]
+layout_mode = 2
+server_name = "Owner's Server"
+server_ip = "held-thru.gl.at.ply.gg:3393"
+can_edit = false
+
+[node name="ServerListItem2" parent="TabContainer/Servers/PanelContainer/ServersServerList" instance=ExtResource("2_m7gat")]
+layout_mode = 2
+server_name = "Local Server"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Servers"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -291.5
+offset_right = 250.0
+offset_bottom = -217.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ServersAddServer" type="Button" parent="TabContainer/Servers/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Add Server"
+
+[node name="ServersDirectConnection" type="Button" parent="TabContainer/Servers/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Direct Connection"
+
+[node name="ServersAddServerPopup" type="PanelContainer" parent="TabContainer/Servers"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -192.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/ServersAddServerPopup"]
+layout_mode = 2
+theme_override_constants/margin_left = 404
+theme_override_constants/margin_top = 374
+theme_override_constants/margin_right = 404
+theme_override_constants/margin_bottom = 404
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Server name:"
+
+[node name="ServersAddServerServerName" type="LineEdit" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Server"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Server Ip:"
+
+[node name="ServersAddServerServerIp" type="LineEdit" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 135
+alignment = 1
+
+[node name="ServersAddServerAdd" type="Button" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Add"
+
+[node name="ServersAddServerCancel" type="Button" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Cancel"
+
+[node name="ServersDirectConnectionPopup" type="PanelContainer" parent="TabContainer/Servers"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -192.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup"]
+layout_mode = 2
+theme_override_constants/margin_left = 404
+theme_override_constants/margin_top = 374
+theme_override_constants/margin_right = 404
+theme_override_constants/margin_bottom = 480
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Server Ip:"
+
+[node name="ServersDirectConnectionServerIp" type="LineEdit" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 85
+alignment = 1
+
+[node name="ServersDirectConnectionConnect" type="Button" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Connect"
+
+[node name="ServersDirectConnectionCancel" type="Button" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Cancel"
+
+[node name="Host" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Label2" type="Label" parent="TabContainer/Host"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -234.5
+offset_right = 121.0
+offset_bottom = -178.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Max Players:"
+label_settings = SubResource("LabelSettings_1y0oh")
+horizontal_alignment = 1
+
+[node name="HostMaxPlayers" type="SpinBox" parent="TabContainer/Host"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -167.5
+offset_right = -3.0
+offset_bottom = -136.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.065, 2.065)
+min_value = 1.0
+max_value = 1000.0
+value = 2.0
+
+[node name="Label" type="Label" parent="TabContainer/Host"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -96.5
+offset_right = 44.0
+offset_bottom = -40.6667
+grow_horizontal = 2
+grow_vertical = 2
+text = "Port:"
+label_settings = SubResource("LabelSettings_1y0oh")
+
+[node name="HostPort" type="LineEdit" parent="TabContainer/Host"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -29.5
+offset_right = 112.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+placeholder_text = "55555"
+alignment = 1
+max_length = 5
+virtual_keyboard_type = 2
+
+[node name="HostHostButton" type="Button" parent="TabContainer/Host"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = 138.5
+offset_right = 129.0
+offset_bottom = 237.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Host"
+
+[node name="Advanced" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Host" type="Button" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 67.5
+offset_right = -106.0
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Host"
+
+[node name="Join" type="Button" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 151.0
+offset_top = 67.5
+offset_right = 295.0
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Join"
+
+[node name="Port" type="LineEdit" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.2813
+offset_top = 83.5
+offset_right = 34.2813
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "55555"
+max_length = 5
+virtual_keyboard_type = 2
+
+[node name="IpOfServer" type="LineEdit" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 135.0
+offset_top = 10.0
+offset_right = 313.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "localhost"
+placeholder_text = "192.168.*.*"
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 54.0
+offset_right = 20.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Port:"
+
+[node name="Label6" type="Label" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = 125.0
+offset_right = 61.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "(required when joining)"
+label_settings = SubResource("LabelSettings_m7gat")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -80.0
+offset_right = -138.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HOST"
+label_settings = SubResource("LabelSettings_mgem6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 193.5
+offset_top = -80.0
+offset_right = 259.5
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "JOIN"
+label_settings = SubResource("LabelSettings_mgem6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 158.0
+offset_top = -22.0
+offset_right = 291.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "IP of Host Server:"
+
+[node name="Label3" type="Label" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.0
+offset_top = -22.0
+offset_right = -104.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Maximum players:"
+
+[node name="MaxPlayers" type="SpinBox" parent="TabContainer/Advanced"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -245.0
+offset_top = 10.0
+offset_right = -105.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 1.0
+value = 2.0
+
+[node name="JoiningServerPopup" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="JoiningServerLabel" type="Label" parent="JoiningServerPopup"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -95.0
+offset_right = 550.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Joining server..."
+label_settings = SubResource("LabelSettings_iv8db")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JoiningServerDisconnectButton" type="Button" parent="JoiningServerPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = 100.0
+offset_right = 89.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Disconnect"
+
+[connection signal="pressed" from="TabContainer/Servers/HBoxContainer/ServersAddServer" to="." method="_on_servers_add_server_pressed"]
+[connection signal="pressed" from="TabContainer/Servers/HBoxContainer/ServersDirectConnection" to="." method="_on_servers_direct_connection_pressed"]
+[connection signal="text_changed" from="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ServersAddServerServerName" to="." method="_on_servers_add_server_server_name_text_changed"]
+[connection signal="text_changed" from="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/ServersAddServerServerIp" to="." method="_on_servers_add_server_server_ip_text_changed"]
+[connection signal="pressed" from="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersAddServerAdd" to="." method="_on_servers_add_server_add_pressed"]
+[connection signal="pressed" from="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersAddServerCancel" to="." method="_on_servers_add_server_cancel_pressed"]
+[connection signal="text_changed" from="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/ServersDirectConnectionServerIp" to="." method="_on_servers_direct_connection_server_ip_text_changed"]
+[connection signal="pressed" from="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersDirectConnectionConnect" to="." method="_on_servers_direct_connection_connect_pressed"]
+[connection signal="pressed" from="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersDirectConnectionCancel" to="." method="_on_servers_direct_connection_cancel_pressed"]
+[connection signal="pressed" from="TabContainer/Host/HostHostButton" to="." method="_on_host_host_button_pressed"]
+[connection signal="pressed" from="TabContainer/Advanced/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="TabContainer/Advanced/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="JoiningServerPopup/JoiningServerDisconnectButton" to="." method="_on_joining_server_disconnect_button_pressed"]
