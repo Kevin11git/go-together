@@ -36,6 +36,7 @@ func add_saved_servers() -> void:
 
 
 func _on_servers_add_server_pressed() -> void:
+	%ServersAddServerAdd.disabled = true
 	%ServersAddServerServerName.text = "Server"
 	%ServersAddServerServerIp.text = ""
 	%ServersAddServerPopup.visible = true
