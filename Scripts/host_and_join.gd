@@ -1,5 +1,8 @@
 extends Control
 
+# FIXME: fix being able to focus controls outside of popups
+# This can be fixed by using canvas layers like in the edit popup for ServerListItem
+
 const SERVER_LIST_ITEM: PackedScene = preload("res://Scenes/server_list_item.tscn")
 
 # Called when the node enters the scene tree for the first time.
