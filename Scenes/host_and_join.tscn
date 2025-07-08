@@ -52,11 +52,16 @@ offset_bottom = 281.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ServersServerList" type="VBoxContainer" parent="TabContainer/Servers/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Servers/PanelContainer"]
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="ServersServerList" type="VBoxContainer" parent="TabContainer/Servers/PanelContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ServerListItem" parent="TabContainer/Servers/PanelContainer/ServersServerList" instance=ExtResource("2_m7gat")]
+[node name="ServerListItem" parent="TabContainer/Servers/PanelContainer/ScrollContainer/ServersServerList" instance=ExtResource("2_m7gat")]
 layout_mode = 2
 server_name = "Owner's Server"
 server_ip = "held-thru.gl.at.ply.gg:3393"
