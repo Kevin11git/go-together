@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c83kpae8r6uiq"]
+[gd_scene load_steps=26 format=3 uid="uid://c83kpae8r6uiq"]
 
 [ext_resource type="Script" uid="uid://bin870cpmjrdi" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://bwvntnks7eys6" path="res://icon.svg" id="2_wrm1d"]
@@ -96,19 +96,7 @@ _data = {
 &"move": SubResource("Animation_ldgsr")
 }
 
-[sub_resource type="FontVariation" id="FontVariation_3dryh"]
-variation_embolden = 1.24
-variation_transform = Transform2D(0.8, 0.485, 0, 1.175, -3.1, 1.83)
-
-[sub_resource type="LabelSettings" id="LabelSettings_qxrlw"]
-font = SubResource("FontVariation_3dryh")
-font_size = 151
-font_color = Color(0, 0.902706, 0, 1)
-outline_size = 53
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="FontVariation" id="FontVariation_v158k"]
-base_font = ExtResource("7_1l0tm")
 variation_transform = Transform2D(1, 0.495, 0, 1, 0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldgsr"]
@@ -117,7 +105,6 @@ font_size = 32
 font_color = Color(0.654232, 0.654232, 0.654232, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_v158k"]
-font = ExtResource("7_1l0tm")
 font_size = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v158k"]
@@ -410,17 +397,19 @@ libraries = {
 }
 script = ExtResource("3_o5yvi")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="RichTextLabel" parent="."]
 z_index = -10
 offset_left = 12053.0
 offset_top = -2848.0
-offset_right = 12874.0
-offset_bottom = -2641.0
-text = "YOU WN!!!!"
-label_settings = SubResource("LabelSettings_qxrlw")
+offset_right = 12936.0
+offset_bottom = -2637.0
+theme_override_colors/default_color = Color(0, 0.902706, 0, 1)
+theme_override_constants/outline_size = 53
+theme_override_font_sizes/italics_font_size = 151
+bbcode_enabled = true
+text = "[i]YOU WIN!!!!"
 
 [node name="Label2" type="Label" parent="."]
-texture_filter = 1
 offset_left = 6266.0
 offset_top = -1224.0
 offset_right = 6958.0
@@ -430,7 +419,6 @@ label_settings = SubResource("LabelSettings_ldgsr")
 
 [node name="Label3" type="Label" parent="."]
 z_index = -10
-texture_filter = 1
 offset_left = 7842.0
 offset_top = -1906.0
 offset_right = 8534.0
@@ -440,7 +428,6 @@ label_settings = SubResource("LabelSettings_v158k")
 
 [node name="Label4" type="Label" parent="."]
 z_index = -10
-texture_filter = 1
 offset_left = 8782.0
 offset_top = -1950.0
 offset_right = 9474.0
