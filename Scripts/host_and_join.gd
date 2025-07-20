@@ -21,7 +21,7 @@ func _on_joining_server_disconnect_button_pressed() -> void:
 	%JoiningServerLabel.text = "Joining server..."
 
 func on_connection_failed():
-	%JoiningServerLabel.text = "Error: Server connection failed\nIs server the offline or are you connected to the internet?"
+	%JoiningServerLabel.text = "Error: Server connection failed\nIs server the online and are you connected to the internet?"
 	
 
 # SERVERS
