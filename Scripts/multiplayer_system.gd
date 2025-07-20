@@ -36,8 +36,16 @@ func join_server(server_ip: String) -> void:
 	
 	print("Joining server: " + client_ip + ":" + str(client_port))
 	joining_server.emit(client_ip + ":" + str(client_port))
-	peer.create_client(client_ip, client_port)
-	multiplayer.multiplayer_peer = peer
+	
+	var error := peer.create_client(client_ip, client_port)
+	if error != ERR_CANT_CREATE:
+		multiplayer.multiplayer_peer = peer
+	else:
+		multiplayer.connection_failed.emit()
+		if multiplayer.multiplayer_peer != null:
+			multiplayer.multiplayer_peer.close()
+			multiplayer.multiplayer_peer = null
+	
 
 func host_server(port: int, max_players: int) -> void:
 	# Create server
