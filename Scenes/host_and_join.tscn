@@ -93,136 +93,138 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Direct Connection"
 
-[node name="ServersAddServerPopup" type="PanelContainer" parent="TabContainer/Servers"]
+[node name="CanvasLayer" type="CanvasLayer" parent="TabContainer/Servers"]
+
+[node name="ServersAddServerPopup" type="PanelContainer" parent="TabContainer/Servers/CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -192.0
-offset_bottom = 192.0
+offset_top = -161.0
+offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/ServersAddServerPopup"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup"]
 layout_mode = 2
 theme_override_constants/margin_left = 404
 theme_override_constants/margin_top = 374
 theme_override_constants/margin_right = 404
 theme_override_constants/margin_bottom = 404
 
-[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Server name:"
 
-[node name="ServersAddServerServerName" type="LineEdit" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ServersAddServerServerName" type="LineEdit" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Server"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Server Ip:"
 
-[node name="ServersAddServerServerIp" type="LineEdit" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="ServersAddServerServerIp" type="LineEdit" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 135
 alignment = 1
 
-[node name="ServersAddServerAdd" type="Button" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ServersAddServerAdd" type="Button" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "Add"
 
-[node name="ServersAddServerCancel" type="Button" parent="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ServersAddServerCancel" type="Button" parent="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Cancel"
 
-[node name="ServersDirectConnectionPopup" type="PanelContainer" parent="TabContainer/Servers"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="TabContainer/Servers"]
+
+[node name="ServersDirectConnectionPopup" type="PanelContainer" parent="TabContainer/Servers/CanvasLayer2"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -192.0
-offset_bottom = 192.0
+offset_top = -161.0
+offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup"]
 layout_mode = 2
 theme_override_constants/margin_left = 404
 theme_override_constants/margin_top = 374
 theme_override_constants/margin_right = 404
 theme_override_constants/margin_bottom = 480
 
-[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Label2" type="Label" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Server Ip:"
 
-[node name="ServersDirectConnectionServerIp" type="LineEdit" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="ServersDirectConnectionServerIp" type="LineEdit" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 85
 alignment = 1
 
-[node name="ServersDirectConnectionConnect" type="Button" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ServersDirectConnectionConnect" type="Button" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "Connect"
 
-[node name="ServersDirectConnectionCancel" type="Button" parent="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ServersDirectConnectionCancel" type="Button" parent="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Cancel"
@@ -503,17 +505,18 @@ grow_vertical = 2
 min_value = 1.0
 value = 2.0
 
-[node name="JoiningServerPopup" type="Panel" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="JoiningServerPopup" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="JoiningServerLabel" type="Label" parent="JoiningServerPopup"]
+[node name="JoiningServerLabel" type="Label" parent="CanvasLayer/JoiningServerPopup"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -532,7 +535,8 @@ label_settings = SubResource("LabelSettings_iv8db")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="JoiningServerDisconnectButton" type="Button" parent="JoiningServerPopup"]
+[node name="JoiningServerDisconnectButton" type="Button" parent="CanvasLayer/JoiningServerPopup"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -550,14 +554,14 @@ text = "Disconnect"
 
 [connection signal="pressed" from="TabContainer/Servers/HBoxContainer/ServersAddServer" to="." method="_on_servers_add_server_pressed"]
 [connection signal="pressed" from="TabContainer/Servers/HBoxContainer/ServersDirectConnection" to="." method="_on_servers_direct_connection_pressed"]
-[connection signal="text_changed" from="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ServersAddServerServerName" to="." method="_on_servers_add_server_server_name_text_changed"]
-[connection signal="text_changed" from="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/ServersAddServerServerIp" to="." method="_on_servers_add_server_server_ip_text_changed"]
-[connection signal="pressed" from="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersAddServerAdd" to="." method="_on_servers_add_server_add_pressed"]
-[connection signal="pressed" from="TabContainer/Servers/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersAddServerCancel" to="." method="_on_servers_add_server_cancel_pressed"]
-[connection signal="text_changed" from="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/ServersDirectConnectionServerIp" to="." method="_on_servers_direct_connection_server_ip_text_changed"]
-[connection signal="pressed" from="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersDirectConnectionConnect" to="." method="_on_servers_direct_connection_connect_pressed"]
-[connection signal="pressed" from="TabContainer/Servers/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersDirectConnectionCancel" to="." method="_on_servers_direct_connection_cancel_pressed"]
+[connection signal="text_changed" from="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ServersAddServerServerName" to="." method="_on_servers_add_server_server_name_text_changed"]
+[connection signal="text_changed" from="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/ServersAddServerServerIp" to="." method="_on_servers_add_server_server_ip_text_changed"]
+[connection signal="pressed" from="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersAddServerAdd" to="." method="_on_servers_add_server_add_pressed"]
+[connection signal="pressed" from="TabContainer/Servers/CanvasLayer/ServersAddServerPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersAddServerCancel" to="." method="_on_servers_add_server_cancel_pressed"]
+[connection signal="text_changed" from="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/ServersDirectConnectionServerIp" to="." method="_on_servers_direct_connection_server_ip_text_changed"]
+[connection signal="pressed" from="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersDirectConnectionConnect" to="." method="_on_servers_direct_connection_connect_pressed"]
+[connection signal="pressed" from="TabContainer/Servers/CanvasLayer2/ServersDirectConnectionPopup/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ServersDirectConnectionCancel" to="." method="_on_servers_direct_connection_cancel_pressed"]
 [connection signal="pressed" from="TabContainer/Host/HostHostButton" to="." method="_on_host_host_button_pressed"]
 [connection signal="pressed" from="TabContainer/Advanced/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="TabContainer/Advanced/Join" to="." method="_on_join_pressed"]
-[connection signal="pressed" from="JoiningServerPopup/JoiningServerDisconnectButton" to="." method="_on_joining_server_disconnect_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/JoiningServerPopup/JoiningServerDisconnectButton" to="." method="_on_joining_server_disconnect_button_pressed"]
