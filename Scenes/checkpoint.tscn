@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvq0v2hqyxkmg"]
+
+[ext_resource type="Script" uid="uid://cf2qhkgi1734b" path="res://Scripts/checkpoint.gd" id="1_lbcco"]
+
+[sub_resource type="Curve" id="Curve_jkya8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.785047, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lbcco"]
+curve = SubResource("Curve_jkya8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jkya8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(60, 0, 0)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 139.21
+initial_velocity_max = 139.21
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 400.0
+linear_accel_max = 400.0
+scale_min = 8.94
+scale_max = 8.94
+alpha_curve = SubResource("CurveTexture_lbcco")
+turbulence_enabled = true
+turbulence_influence_min = 0.045
+turbulence_influence_max = 0.045
+turbulence_initial_displacement_min = -100.0
+turbulence_initial_displacement_max = -100.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkya8"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+anti_aliasing = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbcco"]
+size = Vector2(146, 34)
+
+[node name="Checkpoint" type="Area2D"]
+modulate = Color(1, 0, 0, 1)
+collision_mask = 2
+script = ExtResource("1_lbcco")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(1, 0.995063)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_jkya8")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -73.0
+offset_top = -34.0
+offset_right = 73.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jkya8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_lbcco")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

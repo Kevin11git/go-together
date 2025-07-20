@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c83kpae8r6uiq"]
+[gd_scene load_steps=27 format=3 uid="uid://c83kpae8r6uiq"]
 
 [ext_resource type="Script" uid="uid://bin870cpmjrdi" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://bwvntnks7eys6" path="res://icon.svg" id="2_wrm1d"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://4d3qgqkw2jxl" path="res://assets/8bitoperator_jve.ttf" id="7_1l0tm"]
 [ext_resource type="VideoStream" uid="uid://ony13kkfdpo1" path="res://assets/tenna-epoc-dance.ogv" id="9_h4fw4"]
 [ext_resource type="Shader" uid="uid://bmm03enn8tehy" path="res://shaders/ChromaKeyShader.gdshader" id="9_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://dvq0v2hqyxkmg" path="res://Scenes/checkpoint.tscn" id="12_rku1e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dryh"]
 size = Vector2(1938, 146)
@@ -435,6 +436,26 @@ offset_bottom = -1827.0
 text = "Yup there's moving platforms now"
 label_settings = SubResource("LabelSettings_v158k")
 
+[node name="Label5" type="Label" parent="."]
+z_index = -10
+offset_left = 5417.0
+offset_top = -1568.0
+offset_right = 6247.0
+offset_bottom = -1445.0
+text = "Checkpoints!"
+label_settings = SubResource("LabelSettings_v158k")
+
+[node name="Label6" type="Label" parent="."]
+z_index = -10
+offset_left = 735.0
+offset_top = 168.0
+offset_right = 1565.0
+offset_bottom = 310.583
+text = "Hey thanks for trying my game!
+Hope you have fun!"
+label_settings = SubResource("LabelSettings_v158k")
+horizontal_alignment = 1
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Chat" parent="UI" instance=ExtResource("4_3dryh")]
@@ -503,3 +524,9 @@ volume_db = -80.0
 autoplay = true
 expand = true
 loop = true
+
+[node name="Checkpoint" parent="." instance=ExtResource("12_rku1e")]
+position = Vector2(5580, -1270)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("12_rku1e")]
+position = Vector2(11937, -2664.2)

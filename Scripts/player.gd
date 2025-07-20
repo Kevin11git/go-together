@@ -12,6 +12,7 @@ var deaths: int = 0:
 	set(value):
 		deaths = value
 		queue_redraw()
+var respawn_position: Vector2
 
 func _ready() -> void:
 	set_multiplayer_authority(int(str(name)))
@@ -22,6 +23,7 @@ func _ready() -> void:
 	modulate = Global.player_color
 	%Camera2D.enabled = true
 	global_position = Vector2(randf_range(0, 1138), -50)
+	respawn_position = Vector2(1100, -50)
 	username = Global.username
 	Global.game_chat.send_message.rpc(username + " joined the game!", Global.player_color)
 
@@ -37,7 +39,7 @@ func _process(delta: float) -> void:
 	if global_position.y >= 1000:
 		deaths += 1
 		velocity = Vector2.ZERO
-		global_position = Vector2(randf_range(1008, 1300), -50)
+		global_position = respawn_position
 	
 	if Global.game_chat.is_open: return
 	if Input.is_action_just_pressed("randomize_color"):
