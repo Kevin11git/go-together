@@ -14,8 +14,9 @@ func _on_server_joining(server_ip: String):
 	%JoiningServerDisconnectButton.grab_focus()
 
 func _on_joining_server_disconnect_button_pressed() -> void:
-	multiplayer.multiplayer_peer.close()
-	multiplayer.multiplayer_peer = null
+	if multiplayer.multiplayer_peer != null:
+		multiplayer.multiplayer_peer.close()
+		multiplayer.multiplayer_peer = null
 	%JoiningServerPopup.visible = false
 	%JoiningServerLabel.text = "Joining server..."
 
