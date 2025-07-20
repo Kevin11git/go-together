@@ -454,6 +454,17 @@ label_settings = SubResource("LabelSettings_v158k")
 
 [node name="MobileControls" parent="UI" instance=ExtResource("4_v158k")]
 
+[node name="UIBackground" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="UIBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0816, 0.0816, 0.48, 1)
+
 [node name="Watercooler" type="Sprite2D" parent="."]
 z_index = -5
 texture_filter = 1
