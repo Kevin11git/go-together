@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bujc2pl4u1at4"
-path="res://.godot/imported/Go Together!.icon.png-1990107a49e896d9aa4d1d58f47b4c72.ctex"
+uid="uid://c58i1oloye56e"
+path="res://.godot/imported/Go Together!.icon.png-02fb0dfea1bc870ab289b642b49727ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://website/Go Together!.icon.png"
-dest_files=["res://.godot/imported/Go Together!.icon.png-1990107a49e896d9aa4d1d58f47b4c72.ctex"]
+source_file="res://Go Together!.icon.png"
+dest_files=["res://.godot/imported/Go Together!.icon.png-02fb0dfea1bc870ab289b642b49727ac.ctex"]
 
 [params]
 

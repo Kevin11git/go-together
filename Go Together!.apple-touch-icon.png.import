@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnpn1nu2714ig"
-path="res://.godot/imported/Go Together!.apple-touch-icon.png-4164abaa249301c87da0b04b1580b63a.ctex"
+uid="uid://coa8prqj6pbht"
+path="res://.godot/imported/Go Together!.apple-touch-icon.png-73e437f919f51b0f4c7f964bf9898d12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://website/Go Together!.apple-touch-icon.png"
-dest_files=["res://.godot/imported/Go Together!.apple-touch-icon.png-4164abaa249301c87da0b04b1580b63a.ctex"]
+source_file="res://Go Together!.apple-touch-icon.png"
+dest_files=["res://.godot/imported/Go Together!.apple-touch-icon.png-73e437f919f51b0f4c7f964bf9898d12.ctex"]
 
 [params]
 
