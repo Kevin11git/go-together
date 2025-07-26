@@ -362,7 +362,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D34" type="StaticBody2D" parent="Platforms"]
-position = Vector2(10489, -5651)
+position = Vector2(10437, -5616.46)
 rotation = -0.261799
 scale = Vector2(10.244, 0.581)
 metadata/_edit_group_ = true
@@ -426,7 +426,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D23" type="StaticBody2D" parent="Platforms"]
-position = Vector2(13109, -2659)
+position = Vector2(13109, -2699)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D23"]
@@ -436,7 +436,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D24" type="StaticBody2D" parent="Platforms"]
-position = Vector2(13416, -2789)
+position = Vector2(13311, -2845)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D24"]
@@ -446,7 +446,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D25" type="StaticBody2D" parent="Platforms"]
-position = Vector2(13365, -3088)
+position = Vector2(13434, -3023)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D25"]
@@ -455,18 +455,8 @@ texture = ExtResource("2_wrm1d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D25"]
 shape = SubResource("RectangleShape2D_qxrlw")
 
-[node name="StaticBody2D26" type="StaticBody2D" parent="Platforms"]
-position = Vector2(13710, -2946)
-metadata/_edit_group_ = true
-
-[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D26"]
-texture = ExtResource("2_wrm1d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D26"]
-shape = SubResource("RectangleShape2D_qxrlw")
-
 [node name="StaticBody2D27" type="StaticBody2D" parent="Platforms"]
-position = Vector2(13100, -3218)
+position = Vector2(13100, -3174)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D27"]
@@ -506,7 +496,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D32" type="StaticBody2D" parent="Platforms"]
-position = Vector2(9043, -3879)
+position = Vector2(9106, -4064)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D32"]
@@ -516,7 +506,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D33" type="StaticBody2D" parent="Platforms"]
-position = Vector2(8830, -4179)
+position = Vector2(8850, -4344)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D33"]
@@ -526,7 +516,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D35" type="StaticBody2D" parent="Platforms"]
-position = Vector2(9315, -4540)
+position = Vector2(9306, -4505.46)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D35"]
@@ -536,7 +526,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D36" type="StaticBody2D" parent="Platforms"]
-position = Vector2(9308, -4852)
+position = Vector2(9256, -4817.46)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D36"]
@@ -546,7 +536,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D37" type="StaticBody2D" parent="Platforms"]
-position = Vector2(9303, -5109)
+position = Vector2(9296, -5092)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D37"]
@@ -608,10 +598,11 @@ script = ExtResource("3_o5yvi")
 
 [node name="Label" type="RichTextLabel" parent="."]
 z_index = -10
-offset_left = 10435.0
-offset_top = -6146.0
-offset_right = 11318.0
-offset_bottom = -5935.0
+offset_left = 10371.0
+offset_top = -5835.46
+offset_right = 11254.0
+offset_bottom = -5624.46
+rotation = -0.261799
 theme_override_colors/default_color = Color(0, 0.902706, 0, 1)
 theme_override_constants/outline_size = 53
 theme_override_font_sizes/italics_font_size = 151
@@ -642,6 +633,26 @@ offset_top = -1950.0
 offset_right = 9474.0
 offset_bottom = -1827.0
 text = "Yup there's moving platforms now"
+label_settings = SubResource("LabelSettings_v158k")
+
+[node name="Label7" type="Label" parent="."]
+z_index = -10
+offset_left = 9881.0
+offset_top = -3790.0
+offset_right = 10711.0
+offset_bottom = -3667.0
+scale = Vector2(0.687446, 0.687446)
+text = "hmm how do i get up there?"
+label_settings = SubResource("LabelSettings_v158k")
+
+[node name="Label8" type="Label" parent="."]
+z_index = -10
+offset_left = 9306.0
+offset_top = -4221.0
+offset_right = 10136.0
+offset_bottom = -3957.0
+scale = Vector2(0.687446, 0.687446)
+text = "Yup, you can double jump now!"
 label_settings = SubResource("LabelSettings_v158k")
 
 [node name="Label5" type="Label" parent="."]
@@ -744,6 +755,6 @@ position = Vector2(10493, -3542)
 next_mechanic = "double_jump"
 
 [node name="Checkpoint4" parent="." instance=ExtResource("12_rku1e")]
-position = Vector2(10385, -5689)
+position = Vector2(10344, -5629.46)
 rotation = -0.261799
 next_mechanic = "double_jump"
