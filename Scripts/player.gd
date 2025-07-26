@@ -14,6 +14,9 @@ var deaths: int = 0:
 		queue_redraw()
 var respawn_position: Vector2
 
+var extra_jumps: int = 1
+var jumps_left: int
+
 func _ready() -> void:
 	set_multiplayer_authority(int(str(name)))
 	
@@ -25,6 +28,7 @@ func _ready() -> void:
 	global_position = Vector2(randf_range(0, 1138), -50)
 	respawn_position = Vector2(1100, -50)
 	username = Global.username
+	jumps_left = extra_jumps
 	Global.game_chat.send_message.rpc(username + " joined the game!", Global.player_color)
 
 func _draw() -> void:
@@ -55,8 +59,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if not Global.game_chat.is_open and Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if not Global.game_chat.is_open:
+		if Input.is_action_just_pressed("jump"):
+			if is_on_floor():
+				velocity.y = JUMP_VELOCITY
+				jumps_left = extra_jumps
+			elif "double_jump" in Global.mechanics and not is_on_floor() and jumps_left > 0:
+				velocity.y = JUMP_VELOCITY
+				jumps_left -= 1
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction: float = Input.get_axis("move_left", "move_right")

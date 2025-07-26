@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c83kpae8r6uiq"]
+[gd_scene load_steps=30 format=3 uid="uid://c83kpae8r6uiq"]
 
 [ext_resource type="Script" uid="uid://bin870cpmjrdi" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="Texture2D" uid="uid://bwvntnks7eys6" path="res://icon.svg" id="2_wrm1d"]
@@ -95,6 +95,44 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_o5yvi"),
 &"move": SubResource("Animation_ldgsr")
+}
+
+[sub_resource type="Animation" id="Animation_rfjv2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12731, -3212)]
+}
+
+[sub_resource type="Animation" id="Animation_rku1e"]
+resource_name = "move"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.63333, 5.13333, 7.96667),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(12731, -3212), Vector2(11948, -3250), Vector2(11948, -3250), Vector2(12731, -3212)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1phco"]
+_data = {
+&"RESET": SubResource("Animation_rfjv2"),
+&"move": SubResource("Animation_rku1e")
 }
 
 [sub_resource type="FontVariation" id="FontVariation_v158k"]
@@ -199,7 +237,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Platforms"]
-position = Vector2(3752, -93)
+position = Vector2(3660, -101)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D7"]
@@ -209,7 +247,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Platforms"]
-position = Vector2(3475, -207)
+position = Vector2(3377, -270)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D8"]
@@ -219,7 +257,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Platforms"]
-position = Vector2(3764, -351)
+position = Vector2(3758, -437)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D9"]
@@ -229,7 +267,7 @@ texture = ExtResource("2_wrm1d")
 shape = SubResource("RectangleShape2D_qxrlw")
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Platforms"]
-position = Vector2(3393, -529)
+position = Vector2(3817, -538)
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D10"]
@@ -312,6 +350,29 @@ texture = ExtResource("2_wrm1d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D21"]
 shape = SubResource("RectangleShape2D_qxrlw")
 
+[node name="StaticBody2D30" type="StaticBody2D" parent="Platforms"]
+position = Vector2(10597, -3504)
+scale = Vector2(10.244, 0.581)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D30"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D30"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D34" type="StaticBody2D" parent="Platforms"]
+position = Vector2(10489, -5651)
+rotation = -0.261799
+scale = Vector2(10.244, 0.581)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D34"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D34"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
 [node name="StaticBody2D13" type="StaticBody2D" parent="Platforms"]
 position = Vector2(6851, -2)
 scale = Vector2(12.499, 0.581)
@@ -364,6 +425,136 @@ texture = ExtResource("2_wrm1d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D20"]
 shape = SubResource("RectangleShape2D_qxrlw")
 
+[node name="StaticBody2D23" type="StaticBody2D" parent="Platforms"]
+position = Vector2(13109, -2659)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D23"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D23"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D24" type="StaticBody2D" parent="Platforms"]
+position = Vector2(13416, -2789)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D24"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D24"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D25" type="StaticBody2D" parent="Platforms"]
+position = Vector2(13365, -3088)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D25"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D25"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D26" type="StaticBody2D" parent="Platforms"]
+position = Vector2(13710, -2946)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D26"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D26"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D27" type="StaticBody2D" parent="Platforms"]
+position = Vector2(13100, -3218)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D27"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D27"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D28" type="StaticBody2D" parent="Platforms"]
+position = Vector2(11687, -3249)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D28"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D28"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D29" type="StaticBody2D" parent="Platforms"]
+position = Vector2(11411, -3417)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D29"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D29"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D31" type="StaticBody2D" parent="Platforms"]
+position = Vector2(9735, -3790)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D31"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D31"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D32" type="StaticBody2D" parent="Platforms"]
+position = Vector2(9043, -3879)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D32"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D32"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D33" type="StaticBody2D" parent="Platforms"]
+position = Vector2(8830, -4179)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D33"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D33"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D35" type="StaticBody2D" parent="Platforms"]
+position = Vector2(9315, -4540)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D35"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D35"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D36" type="StaticBody2D" parent="Platforms"]
+position = Vector2(9308, -4852)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D36"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D36"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="StaticBody2D37" type="StaticBody2D" parent="Platforms"]
+position = Vector2(9303, -5109)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/StaticBody2D37"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D37"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
 [node name="AnimatableBody2D\\" type="AnimatableBody2D" parent="Platforms"]
 position = Vector2(7960, -1637)
 scale = Vector2(3, 1)
@@ -398,12 +589,29 @@ libraries = {
 }
 script = ExtResource("3_o5yvi")
 
+[node name="AnimatableBody2D\\3" type="AnimatableBody2D" parent="Platforms"]
+position = Vector2(12731, -3212)
+scale = Vector2(3, 1)
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Platforms/AnimatableBody2D\\3"]
+texture = ExtResource("2_wrm1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/AnimatableBody2D\\3"]
+shape = SubResource("RectangleShape2D_qxrlw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/AnimatableBody2D\\3"]
+libraries = {
+&"": SubResource("AnimationLibrary_1phco")
+}
+script = ExtResource("3_o5yvi")
+
 [node name="Label" type="RichTextLabel" parent="."]
 z_index = -10
-offset_left = 12053.0
-offset_top = -2848.0
-offset_right = 12936.0
-offset_bottom = -2637.0
+offset_left = 10435.0
+offset_top = -6146.0
+offset_right = 11318.0
+offset_bottom = -5935.0
 theme_override_colors/default_color = Color(0, 0.902706, 0, 1)
 theme_override_constants/outline_size = 53
 theme_override_font_sizes/italics_font_size = 151
@@ -530,3 +738,12 @@ position = Vector2(5580, -1270)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("12_rku1e")]
 position = Vector2(11937, -2664.2)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("12_rku1e")]
+position = Vector2(10493, -3542)
+next_mechanic = "double_jump"
+
+[node name="Checkpoint4" parent="." instance=ExtResource("12_rku1e")]
+position = Vector2(10385, -5689)
+rotation = -0.261799
+next_mechanic = "double_jump"

@@ -1,6 +1,6 @@
 extends Area2D
 
-
+@export var next_mechanic: String= ""
 var activated: bool = false
 
 func _on_body_entered(body: Node2D) -> void:
@@ -11,3 +11,5 @@ func _on_body_entered(body: Node2D) -> void:
 	activated = true
 	player.respawn_position = global_position + Vector2(0, -100)
 	modulate = Color.GREEN
+	if next_mechanic.replace(" ", "") != "":
+		Global.mechanics.append(next_mechanic)
