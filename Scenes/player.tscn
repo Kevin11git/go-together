@@ -1,7 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuotmocblbnn6"]
+[gd_scene load_steps=13 format=3 uid="uid://cuotmocblbnn6"]
 
 [ext_resource type="Script" uid="uid://c8axm8ui6n0rq" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bwvntnks7eys6" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://y6q5l5nrm86j" path="res://assets/air_jump_effect.png" id="3_6t5aa"]
+
+[sub_resource type="Curve" id="Curve_vgqql"]
+_data = [Vector2(0, 0), 0.0, 1.69303, 0, 0, Vector2(1, 0.794442), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_fkybt"]
+offsets = PackedFloat32Array(0, 0.555556, 0.968889)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0.862745, 0.862745, 0.862745, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(128, 128)
@@ -25,6 +34,9 @@ properties/4/replication_mode = 2
 properties/5/path = NodePath("Sprite2D:scale")
 properties/5/spawn = true
 properties/5/replication_mode = 2
+properties/6/path = NodePath("AirJumpEffectParticle:emitting")
+properties/6/spawn = true
+properties/6/replication_mode = 2
 
 [sub_resource type="Animation" id="Animation_6t5aa"]
 length = 0.001
@@ -89,9 +101,39 @@ tracks/0/keys = {
 "values": [0.0, -0.174533, 0.174533, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "air_jump"
+length = 0.4188
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.41),
+"transitions": PackedFloat32Array(0.5, 0, 1),
+"update": 0,
+"values": [0.0, 6.28319, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
 _data = {
 &"RESET": SubResource("Animation_6t5aa"),
+&"air_jump": SubResource("Animation_fkybt"),
 &"idle": SubResource("Animation_vgqql"),
 &"move": SubResource("Animation_cvnsp")
 }
@@ -99,6 +141,19 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_cvnsp")
+
+[node name="AirJumpEffectParticle" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 56)
+emitting = false
+amount = 1
+texture = ExtResource("3_6t5aa")
+lifetime = 0.41
+one_shot = true
+explosiveness = 1.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_vgqql")
+color_ramp = SubResource("Gradient_fkybt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

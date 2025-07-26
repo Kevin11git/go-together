@@ -68,6 +68,10 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY
 			elif not is_on_floor() and jumps_left > 0: # extra jumps like double jump
 				velocity.y = JUMP_VELOCITY
+				%AirJumpEffectParticle.restart()
+				%AirJumpEffectParticle.emitting = true
+				%AnimationPlayer.play("air_jump")
+				%AnimationPlayer.seek(0, true)
 				jumps_left -= 1
 
 	# Get the input direction and handle the movement/deceleration.
@@ -77,7 +81,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 		#if not tween == null and tween.is_running(): tween.stop()
-		if %AnimationPlayer.current_animation != "move":
+		if not (%AnimationPlayer.current_animation in ["move", "air_jump"]):
 			tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 			tween.tween_property(%Sprite2D, "scale:y", 1, 0.1)
 			%AnimationPlayer.play("idle")
@@ -87,7 +91,7 @@ func _physics_process(delta: float) -> void:
 				%AnimationPlayer.play_backwards("move")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if %AnimationPlayer.current_animation == "move":
+		if %AnimationPlayer.current_animation in ["move", ""]:
 			tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 			tween.tween_property(%Sprite2D, "rotation_degrees", 0, 0.3)
 			%AnimationPlayer.play("idle")
