@@ -14,7 +14,7 @@ var deaths: int = 0:
 		queue_redraw()
 var respawn_position: Vector2
 
-var extra_jumps: int = 1
+var extra_jumps: int = 0
 var jumps_left: int
 
 func _ready() -> void:
@@ -29,6 +29,7 @@ func _ready() -> void:
 	respawn_position = Vector2(1100, -50)
 	username = Global.username
 	jumps_left = extra_jumps
+	Global.mechanic_added.connect(on_mechanic_added)
 	Global.game_chat.send_message.rpc(username + " joined the game!", Global.player_color)
 
 func _draw() -> void:
@@ -57,14 +58,15 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		jumps_left = extra_jumps
 
 	# Handle jump.
 	if not Global.game_chat.is_open:
 		if Input.is_action_just_pressed("jump"):
 			if is_on_floor():
 				velocity.y = JUMP_VELOCITY
-				jumps_left = extra_jumps
-			elif "double_jump" in Global.mechanics and not is_on_floor() and jumps_left > 0:
+			elif not is_on_floor() and jumps_left > 0: # extra jumps like double jump
 				velocity.y = JUMP_VELOCITY
 				jumps_left -= 1
 
@@ -94,3 +96,8 @@ func _physics_process(delta: float) -> void:
 		velocity = Input.get_vector("move_left", "move_right", "fly_up", "fly_down") * (SPEED * 2)
 	
 	move_and_slide()
+
+func on_mechanic_added(mechanic: String):
+	if mechanic == "double_jump":
+		extra_jumps = 1
+		jumps_left = extra_jumps

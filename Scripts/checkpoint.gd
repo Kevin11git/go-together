@@ -13,3 +13,4 @@ func _on_body_entered(body: Node2D) -> void:
 	modulate = Color.GREEN
 	if next_mechanic.replace(" ", "") != "":
 		Global.mechanics.append(next_mechanic)
+		Global.mechanic_added.emit(next_mechanic)
