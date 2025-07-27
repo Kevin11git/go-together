@@ -1,14 +1,31 @@
 class_name ServerListItem
 extends HBoxContainer
 
-@export var server_name: String = "Server Name"
-@export var server_ip: String = "localhost"
-@export var can_edit: bool = true
+@export var server_name: String = "Server Name":
+	set(value):
+		update_labels_and_buttons()
+		server_name = value
+@export var server_ip: String = "localhost":
+	set(value):
+		update_labels_and_buttons()
+		server_ip = value
+@export var can_edit: bool = true:
+	set(value):
+		update_labels_and_buttons()
+		can_edit = value
+@export var players_online: int = -1:
+	set(value):
+		update_labels_and_buttons()
+		players_online = value
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	update_labels_and_buttons()
+
+func update_labels_and_buttons():
 	%ServerName.text = server_name
 	%ServerNamePanel.tooltip_text = server_ip
+	%PlayersOnline.text = str(players_online) + " Players online" if players_online >= 0 else ""
 	%Edit.disabled = not can_edit
 
 

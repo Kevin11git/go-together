@@ -3,11 +3,21 @@ extends Control
 
 const SERVER_LIST_ITEM: PackedScene = preload("res://Scenes/server_list_item.tscn")
 
+
+
+var listener: PacketPeerUDP
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MultiplayerSystem.joining_server.connect(_on_server_joining)
 	multiplayer.connection_failed.connect(on_connection_failed)
 	add_saved_servers()
+	setup_listener()
+
+func _process(delta: float) -> void:
+	fetch_lan_servers()
+
+
 
 func _on_server_joining(server_ip: String):
 	%JoiningServerPopup.visible = true
@@ -90,6 +100,41 @@ func _on_servers_direct_connection_server_ip_text_changed(new_text: String) -> v
 		%ServersDirectConnectionConnect.disabled = false
 
 
+ # LAN
+func fetch_lan_servers():
+	if listener.get_available_packet_count() > 0:
+		var array_bytes = listener.get_packet()
+		var data = array_bytes.get_string_from_ascii()
+		var json_data = JSON.parse_string(data)
+		var server_address: String = listener.get_packet_ip() + ":" + json_data["port"]
+		
+		var server_list_item: ServerListItem
+		if %LANServerList.get_node_or_null(server_address.replace(".", "_").replace(":", "_")) == null:
+			server_list_item = SERVER_LIST_ITEM.instantiate()
+			server_list_item.server_name = json_data["name"]
+			server_list_item.server_ip = server_address
+			server_list_item.players_online = json_data["players_count"]
+			server_list_item.can_edit = false
+			server_list_item.name = server_address
+			%LANServerList.add_child(server_list_item)
+		else:
+			server_list_item = %LANServerList.get_node(server_address.replace(".", "_").replace(":", "_"))
+			server_list_item.server_name = json_data["name"]
+			server_list_item.server_ip = server_address
+			server_list_item.players_online = json_data["players_count"]
+
+func setup_listener():
+	listener = PacketPeerUDP.new()
+	var error := listener.bind(MultiplayerSystem.listen_port)
+	if error == OK:
+		print("Bound to listen port successfully! Port: " + str(MultiplayerSystem.listen_port))
+	else:
+		print("failed to bind listen port")
+
+func _exit_tree() -> void:
+	listener.close()
+
+
 # HOST
 func _on_host_host_button_pressed() -> void:
 	var port: int = int(%HostPort.text)
@@ -97,6 +142,10 @@ func _on_host_host_button_pressed() -> void:
 		port = int(%HostPort.placeholder_text)
 	
 	MultiplayerSystem.host_server(port, int(%HostMaxPlayers.value))
+
+# dont let it use listener or broadcaster port
+func _on_host_port_text_changed(new_text: String) -> void:
+	%HostHostButton.disabled = new_text == str(MultiplayerSystem.listen_port) or new_text == str(MultiplayerSystem.broadcast_port)
 
 
 # ADVANCED
@@ -114,7 +163,6 @@ func _on_ip_of_server_text_changed(new_text: String) -> void:
 	else:
 		$Join.disabled = true
 
-
 func _on_join_pressed() -> void:
 	var port: String = $TabContainer/Advanced/Port.text
 	if $TabContainer/Advanced/Port.text.is_empty():
@@ -129,3 +177,7 @@ func _on_host_pressed() -> void:
 		port = int($TabContainer/Advanced/Port.placeholder_text)
 	
 	MultiplayerSystem.host_server(port, int($TabContainer/Advanced/MaxPlayers.value))
+
+# dont let it use listener or broadcaster port
+func _on_port_text_changed(new_text: String) -> void:
+	$TabContainer/Advanced/Host.disabled = new_text == str(MultiplayerSystem.listen_port) or new_text == str(MultiplayerSystem.broadcast_port)
