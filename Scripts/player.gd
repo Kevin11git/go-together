@@ -17,6 +17,8 @@ var respawn_position: Vector2
 var extra_jumps: int = 0
 var jumps_left: int
 
+var can_start_coyote_timer: bool = false
+
 func _ready() -> void:
 	set_multiplayer_authority(int(str(name)))
 	
@@ -58,14 +60,23 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		if can_start_coyote_timer and %CoyoteTimer.is_stopped():
+			%CoyoteTimer.start()
 	else:
 		jumps_left = extra_jumps
+		can_start_coyote_timer = true
+		if not %CoyoteTimer.is_stopped():
+			%CoyoteTimer.stop()
 
 	# Handle jump.
 	if not Global.game_chat.is_open:
 		if Input.is_action_just_pressed("jump"):
-			if is_on_floor():
+			if is_on_floor() or not %CoyoteTimer.is_stopped():
 				velocity.y = JUMP_VELOCITY
+				
+				can_start_coyote_timer = false
+				if not %CoyoteTimer.is_stopped():
+					%CoyoteTimer.stop()
 			elif not is_on_floor() and jumps_left > 0: # extra jumps like double jump
 				velocity.y = JUMP_VELOCITY
 				%AirJumpEffectParticle.restart()
@@ -105,3 +116,7 @@ func on_mechanic_added(mechanic: String):
 	if mechanic == "double_jump":
 		extra_jumps = 1
 		jumps_left = extra_jumps
+
+
+func _on_coyote_timer_timeout() -> void:
+	can_start_coyote_timer = false
