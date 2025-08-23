@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b310otp2g7e00"]
+[gd_scene load_steps=7 format=3 uid="uid://b310otp2g7e00"]
 
 [ext_resource type="Theme" uid="uid://backtrgfro4lh" path="res://Themes/main_theme.tres" id="1_48xlc"]
 [ext_resource type="Script" uid="uid://c7p7uvp3ps2s3" path="res://Scripts/main_menu.gd" id="1_ce3w2"]
@@ -13,6 +13,12 @@ font_size = 90
 font_color = Color(0.317647, 1, 1, 1)
 outline_size = 22
 outline_color = Color(0.157874, 0.161034, 0.767897, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ce3w2"]
+font_size = 36
+font_color = Color(1, 1, 0, 1)
+outline_size = 22
+outline_color = Color(0.358988, 6.70822e-07, 1.20327e-07, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -134,6 +140,20 @@ offset_bottom = 150.625
 grow_horizontal = 2
 text = "Go Together!"
 label_settings = SubResource("LabelSettings_1ehe0")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 155.0
+offset_right = 119.0
+offset_bottom = 205.25
+grow_horizontal = 2
+text = "WEB VERSION"
+label_settings = SubResource("LabelSettings_ce3w2")
 horizontal_alignment = 1
 
 [connection signal="color_changed" from="PlayerColorPicker" to="." method="_on_player_color_picker_color_changed"]

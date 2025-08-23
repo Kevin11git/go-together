@@ -1,7 +1,7 @@
 extends Node
 
 
-var peer = ENetMultiplayerPeer.new()
+var peer = WebSocketMultiplayerPeer.new()
 var client_ip: String = ""
 var client_port: int = 0
 var host_port: int = 0
@@ -42,15 +42,9 @@ func join_server(server_ip: String) -> void:
 	
 	print("Joining server: " + client_ip + ":" + str(client_port))
 	joining_server.emit(client_ip + ":" + str(client_port))
-	
-	var error := peer.create_client(client_ip, client_port)
-	if error != ERR_CANT_CREATE:
-		multiplayer.multiplayer_peer = peer
-	else:
-		multiplayer.connection_failed.emit()
-		if multiplayer.multiplayer_peer != null:
-			multiplayer.multiplayer_peer.close()
-			multiplayer.multiplayer_peer = null
+	print("ws://" + client_ip + ":" + str(client_port) + "/")
+	var error := peer.create_client("ws://" + client_ip + ":" + str(client_port) + "/")
+	multiplayer.multiplayer_peer = peer
 	
 
 func host_server(port: int, max_players: int) -> void:
@@ -58,8 +52,15 @@ func host_server(port: int, max_players: int) -> void:
 	host_port = port
 	print("hosting server with port: " + str(port) + " and max players: " + str(max_players))
 	hosted_server.emit(port)
-	peer.create_server(port, max_players)
+	peer.create_server(port)
 	multiplayer.multiplayer_peer = peer
+	
+	
+	var ip_adress :String
+
+	if OS.has_feature("windows"):
+			ip_adress =  IP.resolve_hostname(str(OS.get_environment("COMPUTERNAME")),1)
+	print(ip_adress)
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
 	
 	setup_broadcast()
@@ -67,10 +68,16 @@ func host_server(port: int, max_players: int) -> void:
 func setup_broadcast():
 	broadcaster = PacketPeerUDP.new()
 	broadcaster.set_broadcast_enabled(true)
-	broadcaster.set_dest_address("192.168.19.255", listen_port)
+	
+	var broadcast_ip := "192.168.19.255"
+	if OS.has_feature("windows"):
+		var host_ip = IP.resolve_hostname(str(OS.get_environment("COMPUTERNAME")),1)
+		broadcast_ip =  "192.168." + host_ip.split(".")[2] + ".255"
+	
+	broadcaster.set_dest_address(broadcast_ip, listen_port)
 	var error := broadcaster.bind(broadcast_port)
 	if error == OK:
-		print("Bound to broadcast port successfully! Port: " + str(broadcast_port))
+		print("Bound to broadcast port successfully! Port: " + str(broadcast_port) + ". Ip range: " + broadcast_ip)
 	else:
 		print("failed to bind broadcast port")
 	broadcast_timer = Timer.new()
