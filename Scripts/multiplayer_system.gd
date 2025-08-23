@@ -92,4 +92,4 @@ func on_broadcast_timer_timeout():
 
 func _exit_tree() -> void:
 	if broadcaster != null: broadcaster.close()
-	broadcast_timer.stop()
+	if broadcast_timer != null: broadcast_timer.stop()
