@@ -70,6 +70,10 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if not Global.game_chat.is_open:
+		if Input.is_action_pressed("jump") and is_on_floor() and not %JumpBufferTimer.is_stopped(): # Jump buffering
+			velocity.y = JUMP_VELOCITY
+			%JumpBufferTimer.stop()
+		
 		if Input.is_action_just_pressed("jump"):
 			if is_on_floor() or not %CoyoteTimer.is_stopped():
 				velocity.y = JUMP_VELOCITY
@@ -84,6 +88,10 @@ func _physics_process(delta: float) -> void:
 				%AnimationPlayer.play("air_jump")
 				%AnimationPlayer.seek(0, true)
 				jumps_left -= 1
+			else: # Start jump buffer
+				if %JumpBufferTimer.is_stopped():
+					%JumpBufferTimer.start()
+				
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction: float = Input.get_axis("move_left", "move_right")

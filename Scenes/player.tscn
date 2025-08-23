@@ -186,4 +186,9 @@ unique_name_in_owner = true
 wait_time = 0.1
 one_shot = true
 
+[node name="JumpBufferTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
